@@ -247,14 +247,13 @@ namespace Vets.Controllers
         // POST: Veterinarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult>DeleteConfirmed(int id)
         {
-            try
-            {
+            try { 
                 var veterinarios = await _context.Veterinarios.FindAsync(id);
                 _context.Veterinarios.Remove(veterinarios);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                
                 //remover o ficheiro com a foto do veterinário
 
             }
@@ -263,7 +262,8 @@ namespace Vets.Controllers
                 //throw;
                 //não esquecer, tratar da exceção
             }
-                
+            return RedirectToAction(nameof(Index));
+
         }
 
         private bool VeterinariosExists(int id)
