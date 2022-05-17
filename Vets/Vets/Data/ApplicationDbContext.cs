@@ -9,10 +9,17 @@ namespace Vets.Data
     /// </summary>
     public class ApplicationDbContext : IdentityDbContext
     {
+        
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="modelBuilder"></param>
+        
         //defenir as 'tabelas'
         public DbSet<Animais> Animais { get; set; }
         public DbSet<Veterinarios> Veterinarios { get; set; }
